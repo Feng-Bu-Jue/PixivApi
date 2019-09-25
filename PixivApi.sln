@@ -1,0 +1,43 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.572
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PixivApi", "PixivApi\PixivApi.csproj", "{71117159-4F88-405E-B19D-5897491774A3}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EasyHttpClient", "EasyHttpClient-NetStandard\src\EasyHttpClient\EasyHttpClient.csproj", "{4B951B4F-9829-461E-926B-59305A0067A7}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SimpleHttpClient", "SimpleHttpClient\SimpleHttpClient\SimpleHttpClient.csproj", "{41F5FF72-2513-4673-B14E-AB8FB17D523C}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SubModule", "SubModule", "{F6C06848-702A-4058-9C37-3F28E53ACB10}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{71117159-4F88-405E-B19D-5897491774A3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{71117159-4F88-405E-B19D-5897491774A3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{71117159-4F88-405E-B19D-5897491774A3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{71117159-4F88-405E-B19D-5897491774A3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4B951B4F-9829-461E-926B-59305A0067A7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4B951B4F-9829-461E-926B-59305A0067A7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4B951B4F-9829-461E-926B-59305A0067A7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4B951B4F-9829-461E-926B-59305A0067A7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{41F5FF72-2513-4673-B14E-AB8FB17D523C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{41F5FF72-2513-4673-B14E-AB8FB17D523C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{41F5FF72-2513-4673-B14E-AB8FB17D523C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{41F5FF72-2513-4673-B14E-AB8FB17D523C}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{4B951B4F-9829-461E-926B-59305A0067A7} = {F6C06848-702A-4058-9C37-3F28E53ACB10}
+		{41F5FF72-2513-4673-B14E-AB8FB17D523C} = {F6C06848-702A-4058-9C37-3F28E53ACB10}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {7E2919E4-2FDC-4A7A-A91B-41F5575B9184}
+	EndGlobalSection
+EndGlobal
