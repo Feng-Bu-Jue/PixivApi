@@ -39,7 +39,7 @@ namespace PixivApi.OAuth
             this._authStore = authStore;
         }
 
-        public bool ValidateUnauthorized(HttpResponseMessage httpResponse)
+        public bool IsUnauthorized(HttpResponseMessage httpResponse)
         {
             return
                 httpResponse.StatusCode == HttpStatusCode.Unauthorized
