@@ -1,6 +1,6 @@
 ## PixivApi
-Pixiv API for dotnet
-Direct using without need proxy (through PixivEndPointProvider configure fixed endpoint to bypass DNS)
+##### Pixiv API for dotnet
+##### Direct using without need proxy (through PixivEndPointProvider configure fixed endpoint to bypass DNS)
 
 ## Usage
 
