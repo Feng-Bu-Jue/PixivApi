@@ -49,16 +49,14 @@ namespace PixivApi.OAuth
 
         public async Task SetAccessToken(HttpRequestMessage originalHttpRequestMessage)
         {
-            var task = TaskWhenEnd(authTokenTask, () => DoAuthToken());
-            authTokenTask = task;
+            authTokenTask = TaskWhenEnd(authTokenTask, () => DoAuthToken());
             var authResponse = await authTokenTask;
             SetAuthenticationHeader(originalHttpRequestMessage, authResponse);
         }
 
         public async Task<bool> RefreshAccessToken(HttpRequestMessage originalHttpRequestMessage)
         {
-            var task = TaskWhenEnd(refreshTokenTask, () => DoRefreshToken());
-            refreshTokenTask = task;
+            refreshTokenTask = TaskWhenEnd(refreshTokenTask, () => DoRefreshToken());
             var authResponse = await refreshTokenTask;
             return SetAuthenticationHeader(originalHttpRequestMessage, authResponse);
         }
@@ -106,7 +104,8 @@ namespace PixivApi.OAuth
 
             if (!canRefreshToken || (result != null && result.StatusCode == HttpStatusCode.BadRequest))
             {
-                authResponse = await TaskWhenEnd(authTokenTask, () => DoAuthToken());
+                authTokenTask =  TaskWhenEnd(authTokenTask, () => DoAuthToken());
+                authResponse = await authTokenTask;
             }
 
             return authResponse;
