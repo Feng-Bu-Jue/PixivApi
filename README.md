@@ -1,6 +1,12 @@
 ## PixivApi
-##### Pixiv API for dotnet
-##### Direct using without need proxy (through PixivEndPointProvider configure fixed endpoint to bypass DNS)
+Pixiv API for DotNet
+
+Directly using without need proxy (configure fixed endpoint to bypass DNS)
+
+## Install
+add the url to your package source config: `https://www.myget.org/F/fengbujue/api/v3/index.json`
+
+run with package manager console: `Install-Package PixivApi`
 
 ## Usage
 
