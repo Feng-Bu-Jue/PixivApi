@@ -4,6 +4,7 @@ using PixivApi.Model.Response;
 using PixivApi.Model;
 using EasyHttpClient;
 using PixivApi.API.Attributes;
+using System.IO;
 
 namespace PixivApi.Api
 {
@@ -11,6 +12,10 @@ namespace PixivApi.Api
 
     public interface IPixivApiClient
     {
+        [HttpGet]
+        [Route("")]
+        Task<IHttpResult<Stream>> Download([Uri]string uri);
+
         [HttpGet]
         [Authorize]
         [Route("v1/search/illust")]
