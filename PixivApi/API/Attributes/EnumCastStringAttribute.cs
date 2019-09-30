@@ -12,14 +12,22 @@ namespace PixivApi.API.Attributes
     {
         public string Name => string.Empty;
 
-        public ParameterScope Scope => ParameterScope.Query;
+        public ParameterScope Scope { get; set; } = ParameterScope.Query;
 
         public void ProcessParameter(HttpRequestMessageBuilder requestBuilder, ParameterInfo parameterInfo, object parameterValue)
         {
             var type = parameterValue.GetType();
             if (type.IsEnum)
             {
-                Enum.GetName(type, parameterValue);
+                var value = Enum.GetName(type, parameterValue);
+                if (Scope == ParameterScope.Query)
+                {
+                    requestBuilder.QueryStrings.Add(parameterInfo.Name, value);
+                }
+                else if (Scope == ParameterScope.Form)
+                {
+                    requestBuilder.FormBodys.Add(parameterInfo.Name, value);
+                }
             }
         }
     }
