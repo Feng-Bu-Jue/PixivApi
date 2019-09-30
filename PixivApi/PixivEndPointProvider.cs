@@ -6,6 +6,7 @@ using System.Text;
 
 namespace PixivApi
 {
+    //refer to https://github.com/Notsfsssf/Pix-EzViewer/tree/master/app/src/main/java/com/perol/asdpl/pixivez/networks
     public class PixivEndPointProvider : EndPointProvider
     {
         private readonly IDictionary<string, string> DNSMap = new Dictionary<string, string>()

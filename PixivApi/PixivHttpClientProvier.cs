@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
 using System.Net.Http;
 using System.Text;
 
@@ -29,7 +30,8 @@ namespace PixivApi
 
         private HttpMessageInvoker GetClientInernal(HttpClientSettings clientSetting, params DelegatingHandler[] handlers)
         {
-            var defaultHandlers = new DelegatingHandler[] {
+            var defaultHandlers = new DelegatingHandler[] 
+            {
                 new PixivHeaderValueHandler()
             };
             handlers = handlers == null ? defaultHandlers : handlers.Concat(defaultHandlers).ToArray();
@@ -37,14 +39,13 @@ namespace PixivApi
             var httpClient = SimpleHttpClient.HttpClientFactory.Create((handler) =>
             {
                 handler.EndPointProvider = new PixivEndPointProvider();
+                handler.AutomaticDecompression = DecompressionMethods.GZip;
             }, handlers);
 
             if (clientSetting != null)
             {
                 httpClient.Timeout = clientSetting.Timeout;
             }
-
-            //var httpClient = HttpClientFactory.Create(handlers);
 
             return httpClient;
         }

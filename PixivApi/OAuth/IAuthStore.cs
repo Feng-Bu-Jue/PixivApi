@@ -14,7 +14,7 @@ namespace PixivApi.OAuth
 
     public class TextFileAuthStore : IAuthStore
     {
-        private readonly string _storageFileName = "oauthInfo.json";
+        private readonly string _storageFileName = "oauth.json";
 
         public async Task AddAuthResponseAsync(PixivOAuthResponse pixivOAuth)
         {
