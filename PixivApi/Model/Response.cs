@@ -7,6 +7,7 @@ namespace PixivApi.Model.Response
     public class IllustsListingResponse
     {
         public IEnumerable<Illusts> illusts { get; set; }
+        public string next_url { get; set; }
     }
 
     public class UserDetailResponse

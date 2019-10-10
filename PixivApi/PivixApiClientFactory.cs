@@ -4,8 +4,10 @@ using System;
 
 namespace PixivApi
 {
-    public class PixivApiClientFactory : EasyHttpClientFactory
+    public class PixivApiClientFactory
     {
+        private readonly EasyHttpClientFactory _innerFactory;
+
         public PixivApiClientFactory(string username, string password)
             : this(username, password, new TextFileAuthStore(), TimeSpan.FromSeconds(120))
         {
@@ -14,10 +16,11 @@ namespace PixivApi
 
         public PixivApiClientFactory(string username, string password, IAuthStore authStore, TimeSpan timeout) : base()
         {
-            this.Config.Host = new Uri("https://app-api.pixiv.net");
-            this.Config.HttpClientProvider = new PixivHttpClientProvier();
-            this.Config.HttpClientSettings.Timeout = timeout;
-            this.Config.HttpClientSettings.OAuth2ClientHandler = new PixivOAuthHandler(
+            var config = new EasyClientConfig();
+            config.Host = new Uri("https://app-api.pixiv.net");
+            config.HttpClientProvider = new PixivHttpClientProvier();
+            config.HttpClientSettings.Timeout = timeout;
+            config.HttpClientSettings.OAuth2ClientHandler = new PixivOAuthHandler(
                 "https://oauth.secure.pixiv.net/",
                 new PixivOAuthRequest
                 {
@@ -30,6 +33,16 @@ namespace PixivApi
                 },
                 authStore
             );
+
+            _innerFactory = new EasyHttpClientFactory
+            {
+                Config = config
+            };
+        }
+
+        public T Create<T>()
+        {
+            return _innerFactory.Create<T>();
         }
     }
 
