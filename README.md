@@ -90,3 +90,7 @@ var response = await pixivApiClient.SearchIllust();
         [Route("v1/user/follow/delete")]
         Task<IHttpResult<string>> UserFollowDelete(int user_id);
 ```
+
+## Thanks for these projects
+[pixivpy](https://github.com/upbit/pixivpy)
+[Pix-EzViewer](https://github.com/Notsfsssf/Pix-EzViewer)
