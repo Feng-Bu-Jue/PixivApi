@@ -53,12 +53,12 @@ namespace PixivApi.Api
 
         [HttpPost]
         [Authorize]
-        [Route("v1/illust/bookmark/delete ")]
+        [Route("v1/illust/bookmark/delete")]
         Task<IHttpResult<string>> IllustBookmarkDelete(int illust_id);
 
         [HttpGet]
         [Authorize]
-        [Route("/v1/trending-tags/illust")]
+        [Route("v1/trending-tags/illust")]
         Task<string> TrendingTag(string filter = "for_ios");
 
         [HttpGet]
