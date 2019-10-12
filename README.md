@@ -63,7 +63,7 @@ Task<IHttpResult<string>> IllustBookmarkDelete(int illust_id);
 [HttpGet]
 [Authorize]
 [Route("v1/trending-tags/illust")]
-Task<string> TrendingTag(string filter = "for_ios");
+Task<TrendTagListResponse> TrendingTag(string filter = "for_ios");
 
 [HttpGet]
 [Authorize]
