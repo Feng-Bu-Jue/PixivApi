@@ -19,17 +19,17 @@ namespace PixivApi.Api
         [HttpGet]
         [Authorize]
         [Route("v1/search/illust")]
-        Task<IllustsListingResponse> SearchIllust(string word, [EnumCastString] Sort sort = Sort.date_desc, [EnumCastString]SearchTag search_target = SearchTag.partial_match_for_tags, string filter = "for_ios", int? offset = null);
+        Task<IllustsListResponse> SearchIllust(string word, [EnumCastString] Sort sort = Sort.date_desc, [EnumCastString]SearchTag search_target = SearchTag.partial_match_for_tags, string filter = "for_ios", int? offset = null);
 
         [HttpGet]
         [Authorize]
         [Route("v2/illust/related")]
-        Task<IllustsListingResponse> IllustRelated(int illust_id, string filter = "for_ios");
+        Task<IllustsListResponse> IllustRelated(int illust_id, string filter = "for_ios");
 
         [HttpGet]
         [Authorize]
         [Route("v2/illust/follow")]
-        Task<IllustsListingResponse> IllusFollow(string restrict = "public", int? offset = null);
+        Task<IllustsListResponse> IllusFollow(string restrict = "public", int? offset = null);
 
         [HttpGet]
         [Authorize]
@@ -39,12 +39,12 @@ namespace PixivApi.Api
         [HttpGet]
         [Authorize]
         [Route("v1/illust/recommended")]
-        Task<IllustsListingResponse> IllustRecommended(string content_type = "illust", bool include_ranking_label = true, string filter = "for_ios");
+        Task<IllustsListResponse> IllustRecommended(string content_type = "illust", bool include_ranking_label = true, string filter = "for_ios");
 
         [HttpGet]
         [Authorize]
         [Route("v1/illust/ranking")]
-        Task<IllustsListingResponse> IllustRanking([EnumCastString]RankingMode mode = RankingMode.day, string filter = "for_ios", string date = null, int? offset = null);
+        Task<IllustsListResponse> IllustRanking([EnumCastString]RankingMode mode = RankingMode.day, string filter = "for_ios", string date = null, int? offset = null);
 
         [HttpPost]
         [Authorize]
@@ -58,8 +58,13 @@ namespace PixivApi.Api
 
         [HttpGet]
         [Authorize]
+        [Route("/v1/trending-tags/illust")]
+        Task<string> TrendingTag(string filter = "for_ios");
+
+        [HttpGet]
+        [Authorize]
         [Route("v1/user/following")]
-        Task<UserListingResponse> UserFollowing(int user_id, string restrict = "public", int? offset = null);
+        Task<UserListResponse> UserFollowing(int user_id, string restrict = "public", int? offset = null);
 
         [HttpGet]
         [Authorize]
@@ -69,12 +74,12 @@ namespace PixivApi.Api
         [HttpGet]
         [Authorize]
         [Route("v1/user/recommended")]
-        Task<UserListingResponse> UserRecommended(string filter = "for_ios", int? offset = null);
+        Task<UserListResponse> UserRecommended(string filter = "for_ios", int? offset = null);
 
         [HttpGet]
         [Authorize]
         [Route("v1/user/bookmarks/illust")]
-        Task<IllustsListingResponse> UserBookmarkIllust(int user_id, string restrict = "public");
+        Task<IllustsListResponse> UserBookmarkIllust(int user_id, string restrict = "public");
 
         [HttpPost]
         [Authorize]

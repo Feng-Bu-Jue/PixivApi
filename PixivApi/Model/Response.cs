@@ -4,7 +4,7 @@ using System.Text;
 
 namespace PixivApi.Model.Response
 {
-    public class IllustsListingResponse
+    public class IllustsListResponse
     {
         public IEnumerable<Illusts> illusts { get; set; }
         public string next_url { get; set; }
@@ -26,7 +26,7 @@ namespace PixivApi.Model.Response
         public Workspace workspace { get; set; }
     }
 
-    public class UserListingResponse
+    public class UserListResponse
     {
         /// <summary>
         /// 
@@ -36,6 +36,14 @@ namespace PixivApi.Model.Response
         /// 
         /// </summary>
         public string next_url { get; set; }
+    }
+
+    public class TrendTagListResponse
+    {
+        /// <summary>
+        /// 
+        /// </summary>
+        public List<Trend_tagsItem> trend_tags { get; set; }
     }
 
     public class Image_urls
@@ -342,4 +350,19 @@ namespace PixivApi.Model.Response
     }
 
 
+    public class Trend_tagsItem
+    {
+        /// <summary>
+        /// 東方
+        /// </summary>
+        public string tag { get; set; }
+        /// <summary>
+        /// 东方
+        /// </summary>
+        public string translated_name { get; set; }
+        /// <summary>
+        /// 
+        /// </summary>
+        public Illusts illust { get; set; }
+    }
 }
