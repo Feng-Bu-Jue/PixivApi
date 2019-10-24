@@ -1,4 +1,5 @@
 ﻿using EasyHttpClient;
+using PixivApi.API.Attributes;
 using PixivApi.OAuth;
 using System;
 
@@ -20,6 +21,7 @@ namespace PixivApi
             config.Host = new Uri("https://app-api.pixiv.net");
             config.HttpClientProvider = new PixivHttpClientProvier();
             config.HttpClientSettings.Timeout = timeout;
+            config.HttpClientSettings.ActionFilters.Add(new ResultActionFilterAttribute());
             config.HttpClientSettings.OAuth2ClientHandler = new PixivOAuthHandler(
                 "https://oauth.secure.pixiv.net/",
                 new PixivOAuthRequest
