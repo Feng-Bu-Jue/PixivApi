@@ -23,7 +23,17 @@ Task<IHttpResult<Stream>> Download([Uri]string uri);
 [HttpGet]
 [Authorize]
 [Route("v1/search/illust")]
-Task<IllustsListResponse> SearchIllust(string word, [EnumCastString] Sort sort = Sort.date_desc, [EnumCastString]SearchTag search_target = SearchTag.partial_match_for_tags, string filter = "for_ios", int? offset = null);
+Task<IllustsListResponse> SearchIllust(string word,
+    [CastString] Sort sort = Sort.date_desc,
+    [CastString]SearchTag search_target = SearchTag.partial_match_for_tags,
+    [CastString]bool merge_plain_keyword_results = true,
+    string filter = "for_ios",
+    int? offset = null);
+
+[HttpGet]
+[Authorize]
+[Route("v2/search/autocomplete")]
+Task<IHttpResult<string>> SearchAutocomplete(string word, [CastString]bool merge_plain_keyword_results = true);
 
 [HttpGet]
 [Authorize]
@@ -43,12 +53,12 @@ Task<Illusts> IllustDetail(int illust_id);
 [HttpGet]
 [Authorize]
 [Route("v1/illust/recommended")]
-Task<IllustsListResponse> IllustRecommended(string content_type = "illust", bool include_ranking_label = true, string filter = "for_ios");
+Task<IllustsListResponse> IllustRecommended(string content_type = "illust", [CastString]bool include_ranking_label = true, string filter = "for_ios");
 
 [HttpGet]
 [Authorize]
 [Route("v1/illust/ranking")]
-Task<IllustsListResponse> IllustRanking([EnumCastString]RankingMode mode = RankingMode.day, string filter = "for_ios", string date = null, int? offset = null);
+Task<IllustsListResponse> IllustRanking([CastString]RankingMode mode = RankingMode.day, string filter = "for_ios", string date = null, int? offset = null);
 
 [HttpPost]
 [Authorize]

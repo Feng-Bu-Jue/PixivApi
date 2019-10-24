@@ -8,7 +8,7 @@ using System.Text;
 namespace PixivApi.API.Attributes
 {
     [AttributeUsage(AttributeTargets.Parameter, AllowMultiple = false)]
-    public class EnumCastStringAttribute : Attribute, IParameterScopeAttribute
+    public class CastStringAttribute : Attribute, IParameterScopeAttribute
     {
         public string Name => string.Empty;
 
@@ -17,9 +17,18 @@ namespace PixivApi.API.Attributes
         public void ProcessParameter(HttpRequestMessageBuilder requestBuilder, ParameterInfo parameterInfo, object parameterValue)
         {
             var type = parameterValue.GetType();
+            string value = null;
             if (type.IsEnum)
             {
-                var value = Enum.GetName(type, parameterValue);
+                value = Enum.GetName(type, parameterValue);
+            }
+            else if (typeof(bool) == type)
+            {
+                value = parameterValue.ToString().ToLower();
+            }
+
+            if (value != null)
+            {
                 if (Scope == ParameterScope.Query)
                 {
                     requestBuilder.QueryStrings.Add(parameterInfo.Name, value);
