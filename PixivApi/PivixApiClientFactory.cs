@@ -10,7 +10,7 @@ namespace PixivApi
         private readonly EasyHttpClientFactory _innerFactory;
 
         public PixivApiClientFactory(string username, string password)
-            : this(username, password, new TextFileAuthStore(), TimeSpan.FromSeconds(120))
+            : this(username, password, new JsonFileAuthStore(), TimeSpan.FromSeconds(120))
         {
 
         }

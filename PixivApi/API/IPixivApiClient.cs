@@ -20,7 +20,7 @@ namespace PixivApi.Api
         [Authorize]
         [Route("v1/search/illust")]
         Task<IllustsListResponse> SearchIllust(string word,
-            [CastString] Sort sort = Sort.date_desc,
+            [CastString]Sort sort = Sort.date_desc,
             [CastString]SearchTag search_target = SearchTag.partial_match_for_tags,
             [CastString]bool merge_plain_keyword_results = true,
             string filter = "for_ios",
@@ -29,7 +29,7 @@ namespace PixivApi.Api
         [HttpGet]
         [Authorize]
         [Route("v2/search/autocomplete")]
-        Task<IHttpResult<string>> SearchAutocomplete(string word, [CastString]bool merge_plain_keyword_results = true);
+        Task<TagListResponse> SearchAutocomplete(string word, [CastString]bool merge_plain_keyword_results = true);
 
         [HttpGet]
         [Authorize]
@@ -69,7 +69,7 @@ namespace PixivApi.Api
         [HttpGet]
         [Authorize]
         [Route("v1/trending-tags/illust")]
-        Task<TrendTagListResponse> TrendingTag(string filter = "for_ios");
+        Task<ThrendTagListResponse> TrendingTag(string filter = "for_ios");
 
         [HttpGet]
         [Authorize]

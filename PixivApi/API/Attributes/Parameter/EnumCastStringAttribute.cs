@@ -26,6 +26,10 @@ namespace PixivApi.API.Attributes
             {
                 value = parameterValue.ToString().ToLower();
             }
+            else
+            {
+                throw new NotSupportedException($"{type} cast to string not yet implement");
+            }
 
             if (value != null)
             {

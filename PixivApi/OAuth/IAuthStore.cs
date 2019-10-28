@@ -12,7 +12,7 @@ namespace PixivApi.OAuth
         Task<PixivOAuthResponse> GetAuthResponseAsync();
     }
 
-    public class TextFileAuthStore : IAuthStore
+    public class JsonFileAuthStore : IAuthStore
     {
         private readonly string _storageFileName = "oauth.json";
 
@@ -35,7 +35,7 @@ namespace PixivApi.OAuth
                 return null;
             }
 
-            using (var fileStream = new FileStream(GetPathWithBaseDirectory(), FileMode.Open))
+            using (var fileStream = new FileStream(path, FileMode.Open))
             {
                 var buffer = new byte[fileStream.Length];
                 await fileStream.ReadAsync(buffer, 0, buffer.Length);

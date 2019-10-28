@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
@@ -38,12 +39,15 @@ namespace PixivApi.Model.Response
         public string next_url { get; set; }
     }
 
-    public class TrendTagListResponse
+    public class TagListResponse
     {
-        /// <summary>
-        /// 
-        /// </summary>
-        public List<Trend_tagsItem> trend_tags { get; set; }
+
+        public List<TagsItem> tags { get; set; }
+    }
+
+    public class ThrendTagListResponse
+    {
+        public List<TagsItem> trend_tags { get; set; }
     }
 
     public class Image_urls
@@ -100,10 +104,10 @@ namespace PixivApi.Model.Response
         /// 珂朵莉
         /// </summary>
         public string name { get; set; }
-        /// <summary>
-        /// 
-        /// </summary>
+
         public string translated_name { get; set; }
+
+        public Illusts illust { get; set; }
     }
 
     public class Meta_single_page
@@ -349,20 +353,4 @@ namespace PixivApi.Model.Response
         public string workspace_image_url { get; set; }
     }
 
-
-    public class Trend_tagsItem
-    {
-        /// <summary>
-        /// 東方
-        /// </summary>
-        public string tag { get; set; }
-        /// <summary>
-        /// 东方
-        /// </summary>
-        public string translated_name { get; set; }
-        /// <summary>
-        /// 
-        /// </summary>
-        public Illusts illust { get; set; }
-    }
 }
