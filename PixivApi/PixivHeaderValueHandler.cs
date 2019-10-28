@@ -13,7 +13,7 @@ namespace PixivApi
 
         protected override Task<HttpResponseMessage> SendAsync(HttpRequestMessage request, System.Threading.CancellationToken cancellationToken)
         {
-            string time = DateTime.UtcNow.ToUniversalTime().ToString("yyyy-MM-ddTHH:mm:ssZ");
+            string time = DateTimeOffset.UtcNow.ToString("yyyy-MM-ddTHH:mm:sszzz");
             request.Headers.Add("X-Client-Time", time);
             request.Headers.Add("X-Client-Hash", MD5Hash(time + hashSecret));
             request.Headers.Add("User-Agent", "PixivIOSApp/5.8.0");
