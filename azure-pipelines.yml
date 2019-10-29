@@ -43,8 +43,7 @@ steps:
     versioningScheme: 'off'
 - task: NuGetCommand@2
   inputs:
-    command: 'push'
-    packagesToPush: '$(Build.ArtifactStagingDirectory)/**/*.nupkg;!$(Build.ArtifactStagingDirectory)/**/*.symbols.nupkg'
-    nuGetFeedType: 'internal'
-    publishVstsFeed: '0141c5f9-5554-4272-9137-73ba6650ce4c'
-    allowPackageConflicts: true
+    command: 'restore'
+    restoreSolution: '**/*.sln'
+    feedsToUse: 'select'
+    vstsFeed: '0141c5f9-5554-4272-9137-73ba6650ce4c'
