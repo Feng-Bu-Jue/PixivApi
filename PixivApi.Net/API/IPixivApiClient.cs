@@ -44,7 +44,7 @@ namespace PixivApi.Net.API
         [HttpGet]
         [Authorize]
         [Route("v1/illust/detail")]
-        Task<Illusts> IllustDetail(int illust_id);
+        Task<IllustResponse> IllustDetail(int illust_id);
 
         [HttpGet]
         [Authorize]

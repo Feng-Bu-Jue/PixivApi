@@ -11,6 +11,11 @@ namespace PixivApi.Net.Model.Response
         public string next_url { get; set; }
     }
 
+    public class IllustResponse
+    {
+        public Illusts illust { get; set; }
+    }
+
     public class UserDetailResponse
     {
         /// <summary>
