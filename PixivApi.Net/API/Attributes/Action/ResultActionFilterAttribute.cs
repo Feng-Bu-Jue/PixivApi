@@ -2,14 +2,14 @@
 using EasyHttpClient.ActionFilters;
 using EasyHttpClient.Attributes;
 using EasyHttpClient.Utilities;
-using PixivApi.Exceptions;
+using PixivApi.Net.Exceptions;
 using System;
 using System.Collections.Generic;
 using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace PixivApi.API.Attributes
+namespace PixivApi.Net.API.Attributes
 {
     public class ResultActionFilterAttribute : ActionFilterAttribute
     {

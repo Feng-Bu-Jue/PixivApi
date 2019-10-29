@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace PixivApi.Model
+namespace PixivApi.Net.Model
 {
     public enum RankingMode
     {

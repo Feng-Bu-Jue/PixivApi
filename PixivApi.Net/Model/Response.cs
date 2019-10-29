@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace PixivApi.Model.Response
+namespace PixivApi.Net.Model.Response
 {
     public class IllustsListResponse
     {

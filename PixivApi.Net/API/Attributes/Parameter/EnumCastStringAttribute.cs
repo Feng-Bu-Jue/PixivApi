@@ -5,7 +5,7 @@ using System.Collections.Generic;
 using System.Reflection;
 using System.Text;
 
-namespace PixivApi.API.Attributes
+namespace PixivApi.Net.API.Attributes
 {
     [AttributeUsage(AttributeTargets.Parameter, AllowMultiple = false)]
     public class CastStringAttribute : Attribute, IParameterScopeAttribute

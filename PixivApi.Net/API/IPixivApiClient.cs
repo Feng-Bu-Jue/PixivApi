@@ -1,12 +1,12 @@
 ﻿using EasyHttpClient.Attributes;
 using System.Threading.Tasks;
-using PixivApi.Model.Response;
-using PixivApi.Model;
+using PixivApi.Net.Model.Response;
+using PixivApi.Net.Model;
 using EasyHttpClient;
-using PixivApi.API.Attributes;
+using PixivApi.Net.API.Attributes;
 using System.IO;
 
-namespace PixivApi.Api
+namespace PixivApi.Net.Api
 {
     //refer to https://github.com/upbit/pixivpy/wiki
 

@@ -4,7 +4,7 @@ using System.IO;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace PixivApi.OAuth
+namespace PixivApi.Net.OAuth
 {
     public interface IAuthStore
     {

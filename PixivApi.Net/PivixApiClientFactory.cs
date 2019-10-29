@@ -1,9 +1,9 @@
 ﻿using EasyHttpClient;
-using PixivApi.API.Attributes;
-using PixivApi.OAuth;
+using PixivApi.Net.API.Attributes;
+using PixivApi.Net.OAuth;
 using System;
 
-namespace PixivApi
+namespace PixivApi.Net
 {
     public class PixivApiClientFactory
     {

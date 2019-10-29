@@ -11,7 +11,7 @@ using System.Net.Http.Headers;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace PixivApi.OAuth
+namespace PixivApi.Net.OAuth
 {
     public class PixivOAuthHandler : IOAuth2ClientHandler
     {

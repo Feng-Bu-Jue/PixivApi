@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Net;
 using System.Text;
 
-namespace PixivApi
+namespace PixivApi.Net
 {
     //refer to https://github.com/Notsfsssf/Pix-EzViewer/tree/master/app/src/main/java/com/perol/asdpl/pixivez/networks
     public class PixivEndPointProvider : EndPointProvider

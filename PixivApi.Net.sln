@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.28307.572
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PixivApi", "PixivApi\PixivApi.csproj", "{71117159-4F88-405E-B19D-5897491774A3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PixivApi.Net", "PixivApi.Net\PixivApi.Net.csproj", "{71117159-4F88-405E-B19D-5897491774A3}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EasyHttpClient", "EasyHttpClient-NetStandard\src\EasyHttpClient\EasyHttpClient.csproj", "{4B951B4F-9829-461E-926B-59305A0067A7}"
 EndProject

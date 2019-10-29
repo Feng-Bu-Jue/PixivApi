@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Security.Cryptography;
 
-namespace PixivApi
+namespace PixivApi.Net
 {
     public class PixivHeaderValueHandler : System.Net.Http.DelegatingHandler
     {

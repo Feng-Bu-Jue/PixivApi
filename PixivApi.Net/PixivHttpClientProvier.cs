@@ -6,7 +6,7 @@ using System.Net;
 using System.Net.Http;
 using System.Text;
 
-namespace PixivApi
+namespace PixivApi.Net
 {
     public class PixivHttpClientProvier : IHttpClientProvider
     {
