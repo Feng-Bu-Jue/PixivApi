@@ -46,4 +46,4 @@ steps:
     command: 'restore'
     restoreSolution: '**/*.sln'
     feedsToUse: 'select'
-    vstsFeed: '0141c5f9-5554-4272-9137-73ba6650ce4c'
+    vstsFeed: 'e8610dbb-2386-4db3-a22f-0af28e167452/9740a786-5021-4d60-803b-6815d24f7253'
