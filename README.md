@@ -1,4 +1,4 @@
-## PixivApi
+## PixivApi.Net
 Pixiv API for DotNet
 
 Directly using without the need proxy (configure fixed endpoint to bypass DNS)
