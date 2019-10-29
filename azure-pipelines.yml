@@ -8,9 +8,9 @@ variables:
   buildConfiguration: 'Release'
 
 steps:
-- script:  
-    git submodule init 
-    git submodule update
+- script: git submodule init 
+- script: git submodule update
+ 
   displayName: 'submodule'
 - task: DotNetCoreCLI@2
   inputs:
