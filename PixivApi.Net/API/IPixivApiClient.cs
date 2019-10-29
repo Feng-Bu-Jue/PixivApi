@@ -6,7 +6,7 @@ using EasyHttpClient;
 using PixivApi.Net.API.Attributes;
 using System.IO;
 
-namespace PixivApi.Net.Api
+namespace PixivApi.Net.API
 {
     //refer to https://github.com/upbit/pixivpy/wiki
 
