@@ -15,6 +15,8 @@ namespace PixivApi.Net.OAuth
 {
     public class PixivOAuthHandler : IOAuth2ClientHandler
     {
+        private readonly static object _syncObject = new object();
+
         private readonly IOAuth2Api _oAuth2Api;
         private readonly IAuthStore _authStore;
         private readonly string _oAuth2TokenPath;
@@ -104,7 +106,7 @@ namespace PixivApi.Net.OAuth
 
             if (!canRefreshToken || (result != null && result.StatusCode == HttpStatusCode.BadRequest))
             {
-                authTokenTask =  TaskWhenEnd(authTokenTask, () => DoAuthToken());
+                authTokenTask = TaskWhenEnd(authTokenTask, () => DoAuthToken());
                 authResponse = await authTokenTask;
             }
 
@@ -113,11 +115,22 @@ namespace PixivApi.Net.OAuth
 
         private Task<T> TaskWhenEnd<T>(Task<T> task, Func<Task<T>> valueFactory)
         {
-            if (task == null || task.IsCanceled || task.IsCompleted || task.IsFaulted)
+            if (Check(task))
             {
-                task = valueFactory();
+                lock (_syncObject)
+                {
+                    if (Check(task))
+                    {
+                        task = valueFactory();
+                    }
+                }
             }
             return task;
+
+            bool Check(Task t)
+            {
+                return t == null || t.IsCanceled || t.IsCompleted || t.IsFaulted;
+            }
         }
     }
 
