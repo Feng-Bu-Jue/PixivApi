@@ -21,7 +21,8 @@ namespace PixivApi.Net.OAuth
             var json = JsonConvert.SerializeObject(pixivOAuth);
             var buffer = Encoding.UTF8.GetBytes(json);
             var path = GetPathWithBaseDirectory();
-            using (var fileStream = new FileStream(GetPathWithBaseDirectory(), FileMode.OpenOrCreate))
+            var fileMode = File.Exists(path) ? FileMode.Truncate : FileMode.Create;
+            using (var fileStream = new FileStream(path, fileMode))
             {
                 await fileStream.WriteAsync(buffer);
             }
@@ -34,8 +35,7 @@ namespace PixivApi.Net.OAuth
             {
                 return null;
             }
-
-            using (var fileStream = new FileStream(path, FileMode.Open))
+            using (var fileStream = new FileStream(path, FileMode.Open, FileAccess.Read))
             {
                 var buffer = new byte[fileStream.Length];
                 await fileStream.ReadAsync(buffer, 0, buffer.Length);
