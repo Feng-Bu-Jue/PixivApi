@@ -1,7 +1,7 @@
 ## PixivApi.Net
 Pixiv API for DotNet
 
-Directly using without the need proxy (configure fixed endpoint to bypass DNS)
+without needing proxy (direct connect by non-SNI sslstream)
 
 ## Install
 Please refer to [Azure Feed](https://dev.azure.com/SourceFromGithub/fengbujue/_packaging?_a=package&feed=GithubFeed&package=PixivApi.Net&protocolType=NuGet)
