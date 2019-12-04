@@ -30,16 +30,19 @@ namespace PixivApi.Net
 
         private HttpMessageInvoker GetClientInernal(HttpClientSettings clientSetting, params DelegatingHandler[] handlers)
         {
-            var defaultHandlers = new DelegatingHandler[] 
+            var defaultHandlers = new DelegatingHandler[]
             {
                 new PixivHeaderValueHandler()
             };
             handlers = handlers == null ? defaultHandlers : handlers.Concat(defaultHandlers).ToArray();
-            
+
             var httpClient = SimpleHttpClient.HttpClientFactory.Create((handler) =>
             {
-                handler.EndPointProvider = new PixivEndPointProvider();
-                handler.AutomaticDecompression = DecompressionMethods.GZip;
+                handler.Settings = new SimpleHttpClient.HttpConnectionSettings()
+                {
+                    EndPointProvider = new PixivEndPointProvider(),
+                    AutomaticDecompression = DecompressionMethods.GZip
+                };
             }, handlers);
 
             if (clientSetting != null)
