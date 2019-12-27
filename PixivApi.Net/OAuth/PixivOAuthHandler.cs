@@ -24,13 +24,13 @@ namespace PixivApi.Net.OAuth
         private Task<PixivOAuthResponse> refreshTokenTask;
 
         private readonly PixivOAuthRequest _request;
-        public PixivOAuthHandler(string loginHost, PixivOAuthRequest request, IAuthStore authStore)
-            : this(loginHost, "auth/token", request, authStore)
+        public PixivOAuthHandler(string loginHost, PixivOAuthRequest request, IAuthStore authStore, IHttpClientProvider httpClientProvider)
+            : this(loginHost, "auth/token", request, authStore, httpClientProvider)
         {
 
         }
 
-        public PixivOAuthHandler(string loginHost, string oAuth2TokenPath, PixivOAuthRequest request, IAuthStore authStore)
+        public PixivOAuthHandler(string loginHost, string oAuth2TokenPath, PixivOAuthRequest request, IAuthStore authStore, IHttpClientProvider httpClientProvider)
         {
             var factory = new EasyHttpClientFactory();
             factory.Config.HttpClientProvider = new PixivHttpClientProvier();

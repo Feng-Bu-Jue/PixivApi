@@ -10,16 +10,24 @@ namespace PixivApi.Net
         private readonly EasyHttpClientFactory _innerFactory;
 
         public PixivApiClientFactory(string username, string password)
-            : this(username, password, null)
+            : this(username, password, false, null)
         {
 
         }
 
-        public PixivApiClientFactory(string username, string password, Action<EasyClientConfig> configure) : base()
+        public PixivApiClientFactory(string username, string password, bool enableDirectConnect)
+         : this(username, password, enableDirectConnect, null)
+        {
+
+        }
+
+        public PixivApiClientFactory(string username, string password, bool enableDirectConnect, Action<EasyClientConfig> configure) : base()
         {
             var config = new EasyClientConfig();
+            var httpClientProvider = new PixivHttpClientProvier(enableDirectConnect);
+
             config.Host = new Uri("https://app-api.pixiv.net");
-            config.HttpClientProvider = new PixivHttpClientProvier();
+            config.HttpClientProvider = httpClientProvider;
             config.HttpClientSettings.Timeout = TimeSpan.FromSeconds(120);
             config.HttpClientSettings.ActionFilters.Add(new ResultActionFilterAttribute());
             config.HttpClientSettings.OAuth2ClientHandler = new PixivOAuthHandler(
@@ -33,7 +41,8 @@ namespace PixivApi.Net
                     Username = username,
                     Password = password,
                 },
-                new JsonFileAuthStore()
+                new JsonFileAuthStore(),
+                httpClientProvider
             );
 
             configure?.Invoke(config);

@@ -10,8 +10,15 @@ namespace PixivApi.Net
 {
     public class PixivHttpClientProvier : IHttpClientProvider
     {
+
         private readonly object _syncObject = new object();
         private HttpMessageInvoker _httpClient;
+        private bool _enableDirectConnect;
+
+        public PixivHttpClientProvier(bool enableDirectConnect = false)
+        {
+            this._enableDirectConnect = enableDirectConnect;
+        }
 
         public HttpMessageInvoker GetClient(HttpClientSettings clientSetting, params DelegatingHandler[] handlers)
         {
@@ -40,9 +47,12 @@ namespace PixivApi.Net
             {
                 handler.Settings = new SimpleHttpClient.HttpConnectionSettings()
                 {
-                    EndPointProvider = new PixivEndPointProvider(),
                     AutomaticDecompression = DecompressionMethods.GZip
                 };
+                if (_enableDirectConnect)
+                {
+                    handler.Settings.EndPointProvider = new PixivEndPointProvider(),
+                }
             }, handlers);
 
             if (clientSetting != null)
