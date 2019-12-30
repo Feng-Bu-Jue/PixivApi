@@ -51,7 +51,7 @@ namespace PixivApi.Net
                 };
                 if (_enableDirectConnect)
                 {
-                    handler.Settings.EndPointProvider = new PixivEndPointProvider(),
+                    handler.Settings.EndPointProvider = new PixivEndPointProvider();
                 }
             }, handlers);
 
