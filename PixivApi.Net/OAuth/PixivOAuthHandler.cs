@@ -33,7 +33,7 @@ namespace PixivApi.Net.OAuth
         public PixivOAuthHandler(string loginHost, string oAuth2TokenPath, PixivOAuthRequest request, IAuthStore authStore, IHttpClientProvider httpClientProvider)
         {
             var factory = new EasyHttpClientFactory();
-            factory.Config.HttpClientProvider = new PixivHttpClientProvier();
+            factory.Config.HttpClientProvider = httpClientProvider;
 
             this._request = request;
             this._oAuth2TokenPath = oAuth2TokenPath.Trim('/');

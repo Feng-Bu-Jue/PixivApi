@@ -12,9 +12,9 @@ namespace PixivApi.Net
         private readonly IDictionary<string, string> DNSMap = new Dictionary<string, string>()
         {
             { "i.pximg.net","210.140.92.136"},
-            { "app-api.pixiv.net","210.140.131.224"},
-            { "accounts.pixiv.net","210.140.131.222"},
-            { "oauth.secure.pixiv.net","210.140.131.219"},
+            { "app-api.pixiv.net","210.140.131.223"},
+            { "accounts.pixiv.net","210.140.131.219"},
+            { "oauth.secure.pixiv.net","210.140.131.223"},
         };
 
         public override EndPoint GetEndPoint(string host, int port)
